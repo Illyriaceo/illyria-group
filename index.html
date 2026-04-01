@@ -1,148 +1,242 @@
-export default function IllyriaGroupShowcase() {
-  const activities = [
-    {
-      title: "Lancement de marques e-commerce",
-      description:
-        "Nous concevons, lançons et opérons des boutiques e-commerce pensées pour durer, avec une approche orientée positionnement, offre et exécution.",
-    },
-    {
-      title: "Acquisition & croissance",
-      description:
-        "Nous pilotons la croissance via des systèmes d'acquisition, des créatifs performants et une optimisation continue du funnel.",
-    },
-    {
-      title: "Infrastructure de marque",
-      description:
-        "Nous construisons des actifs solides : identité, site, contenu, opérations et structure pour faire émerger des marques premium.",
-    },
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illyria Group | E-commerce Portfolio Holding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --grey-light: #f9f9f9;
+            --grey-mid: #666666;
+            --border: #dfdfdf;
+            --max-width: 1200px;
+        }
 
-  const principles = [
-    "Ownership plutôt que prestation",
-    "Vitesse d'exécution",
-    "Simplicité premium",
-    "Vision long terme",
-  ];
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            background-color: var(--white); 
+            color: var(--black); 
+            line-height: 1.5; 
+            -webkit-font-smoothing: antialiased;
+        }
 
-  return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      <section className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-          <div>
-            <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm tracking-wide text-neutral-300">
-              Illyria.group
-            </div>
-            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight md:text-7xl">
-              Nous lançons et développons des marques e-commerce ambitieuses.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300 md:text-xl">
-              Illyria Group est une structure d'opération et de croissance dédiée à la création,
-              l'accélération et l'optimisation de marques e-commerce à fort potentiel.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="#activites"
-                className="rounded-2xl bg-white px-6 py-3 text-sm font-medium text-neutral-950 transition hover:opacity-90"
-              >
-                Découvrir nos activités
-              </a>
-              <a
-                href="#contact"
-                className="rounded-2xl border border-white/15 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/5"
-              >
-                Nous contacter
-              </a>
-            </div>
-          </div>
+        /* Layout & Scaffolding */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+        section { padding: 140px 0; border-top: 1px solid var(--border); }
+        .hero { border-top: none; padding: 200px 0 140px 0; }
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30 backdrop-blur">
-            <div className="text-sm uppercase tracking-[0.2em] text-neutral-400">Positionnement</div>
-            <div className="mt-4 space-y-4">
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                <div className="text-sm text-neutral-400">Modèle</div>
-                <div className="mt-1 text-xl font-medium">Maison de marques e-commerce</div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                <div className="text-sm text-neutral-400">Approche</div>
-                <div className="mt-1 text-xl font-medium">Operator-led, design-driven, growth-focused</div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                <div className="text-sm text-neutral-400">Ambition</div>
-                <div className="mt-1 text-xl font-medium">Construire un portefeuille de marques premium</div>
-              </div>
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 90px;
+            background: rgba(255,255,255,0.98);
+            display: flex; align-items: center; z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-weight: 600; letter-spacing: -0.01em; font-size: 1.3rem; text-transform: uppercase; }
+        .nav-links a { text-decoration: none; color: var(--black); margin-left: 50px; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Hero Section */
+        .hero h1 { font-size: 3.8rem; font-weight: 400; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 30px; max-width: 900px; }
+        .hero p { font-size: 1.3rem; color: var(--grey-mid); max-width: 650px; margin-bottom: 48px; font-weight: 300; }
+        .cta-button { 
+            display: inline-block; padding: 18px 40px; background: var(--black); color: var(--white); 
+            text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;
+        }
+        .cta-button:hover { background: var(--grey-mid); }
+
+        /* Services / Portfolio Section */
+        .section-label { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--grey-mid); display: block; margin-bottom: 12px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 400; margin-bottom: 80px; letter-spacing: -0.02em; }
+
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1px; 
+            background: var(--border); 
+            border: 1px solid var(--border);
+        }
+        .service-block { 
+            background: var(--white); 
+            padding: 70px 45px; 
+            height: 100%;
+        }
+        .service-block .num { font-size: 0.75rem; color: var(--grey-mid); margin-bottom: 50px; display: block; font-weight: 600; }
+        .service-block h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 20px; }
+        .service-block p { font-size: 0.95rem; color: var(--grey-mid); line-height: 1.7; }
+
+        /* About / Holding Structure */
+        .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+        .about-text h3 { font-size: 1.7rem; font-weight: 400; margin-bottom: 30px; line-height: 1.4; }
+        .about-text p { margin-bottom: 20px; color: var(--grey-mid); }
+        
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .stat-item { border-left: 2px solid var(--black); padding-left: 20px; }
+        .stat-item h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; }
+        .stat-item p { font-size: 0.9rem; color: var(--grey-mid); }
+
+        /* Contact & Address */
+        .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+        .address-card { font-size: 1.1rem; border-top: 4px solid var(--black); padding-top: 30px; }
+        .address-card span { display: block; color: var(--grey-mid); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px; }
+
+        /* Footer */
+        footer { padding: 80px 0; background: var(--white); border-top: 1px solid var(--border); }
+        .footer-flex { display: flex; justify-content: space-between; align-items: flex-end; }
+        .legal-name { font-size: 0.75rem; color: var(--grey-mid); margin-top: 10px; }
+        .footer-links a { font-size: 0.75rem; color: var(--black); text-decoration: none; margin-left: 30px; opacity: 0.6; }
+
+        @media (max-width: 960px) {
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 2.8rem; }
+            .about-wrap, .contact-wrap { grid-template-columns: 1fr; gap: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Illyria Group</div>
+            <div class="nav-links">
+                <a href="#portfolio">Operations</a>
+                <a href="#about">The Group</a>
+                <a href="#contact">Contact</a>
             </div>
-          </div>
         </div>
-      </section>
+    </nav>
 
-      <section id="activites" className="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-16">
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <div className="text-sm uppercase tracking-[0.2em] text-neutral-500">Activités</div>
-            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Ce que nous construisons</h2>
-          </div>
-          <p className="max-w-xl text-sm leading-7 text-neutral-400 md:text-base">
-            Une structure pensée pour identifier des opportunités, lancer rapidement et transformer des idées en actifs e-commerce durables.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {activities.map((item) => (
-            <div key={item.title} className="rounded-[2rem] border border-white/10 bg-white/5 p-7">
-              <h3 className="text-xl font-medium">{item.title}</h3>
-              <p className="mt-4 leading-7 text-neutral-300">{item.description}</p>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <span class="section-label">Institutional Asset Management</span>
+                <h1>Building and operating a portfolio of e-commerce brands.</h1>
+                <p>Illyria Group scales digital-native entities through shared infrastructure, centralized capital allocation, and operational excellence.</p>
+                <a href="#contact" class="cta-button">Inquire</a>
             </div>
-          ))}
-        </div>
-      </section>
+        </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-16">
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-            <div className="text-sm uppercase tracking-[0.2em] text-neutral-500">Principes</div>
-            <h2 className="mt-3 text-3xl font-semibold">Notre façon d'opérer</h2>
-            <div className="mt-8 space-y-3">
-              {principles.map((principle) => (
-                <div key={principle} className="rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-neutral-200">
-                  {principle}
+        <section id="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Core Capabilities</span>
+                    <h2>The Portfolio Framework</h2>
                 </div>
-              ))}
+                <div class="services-grid">
+                    <div class="service-block">
+                        <span class="num">01</span>
+                        <h3>Asset Acquisition</h3>
+                        <p>Identifying high-yield e-commerce brands with strong fundamentals and untapped scaling potential.</p>
+                    </div>
+                    <div class="service-block">
+                        <span class="num">02</span>
+                        <h3>Shared Services</h3>
+                        <p>Centralizing logistics, customer success, and HR to drive down OpEx across the entire umbrella.</p>
+                    </div>
+                    <div class="service-block">
+                        <span class="num">03</span>
+                        <h3>Growth Equity</h3>
+                        <p>Strategic deployment of capital to accelerate inventory turnover and market penetration.</p>
+                    </div>
+                    <div class="service-block">
+                        <span class="num">04</span>
+                        <h3>Proprietary Tech</h3>
+                        <p>Developing unified data dashboards and automated supply chain tools for all Illyria brands.</p>
+                    </div>
+                    <div class="service-block">
+                        <span class="num">05</span>
+                        <h3>Omnichannel Strategy</h3>
+                        <p>Expanding digital-first brands into physical retail and global marketplaces with consistency.</p>
+                    </div>
+                    <div class="service-block">
+                        <span class="num">06</span>
+                        <h3>Exit Strategy</h3>
+                        <p>Nurturing brands toward institutional grade maturity for long-term value realization.</p>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8">
-            <div className="text-sm uppercase tracking-[0.2em] text-neutral-500">À propos</div>
-            <h2 className="mt-3 text-3xl font-semibold">Un groupe orienté exécution</h2>
-            <p className="mt-6 max-w-2xl leading-8 text-neutral-300">
-              Illyria Group n'est pas une agence classique. Nous développons nos propres initiatives e-commerce,
-              avec une attention particulière portée à l'offre, au branding, à la performance créative et à la croissance.
-            </p>
-            <p className="mt-4 max-w-2xl leading-8 text-neutral-300">
-              Notre objectif est simple : construire des marques fortes, rentables et élégantes, capables de s'imposer sur leur marché.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-12">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div>
-              <div className="text-sm uppercase tracking-[0.2em] text-neutral-500">Contact</div>
-              <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Présenter Illyria avec clarté, autorité et élégance.</h2>
-              <p className="mt-5 max-w-2xl leading-8 text-neutral-300">
-                Ce site peut évoluer en vraie vitrine corporate avec pages dédiées, étude du groupe, portefeuille de marques, manifeste et formulaire de contact.
-              </p>
+        <section id="about">
+            <div class="container">
+                <div class="about-wrap">
+                    <div class="about-text">
+                        <span class="section-label">Organization</span>
+                        <h3>A specialized holding company for the digital economy.</h3>
+                        <p>Illyria Group operates at the intersection of private equity and operational management. We don't just invest in brands; we integrate them into a sophisticated ecosystem designed for efficiency.</p>
+                        <p>By owning the infrastructure—from warehousing to software stacks—we allow our brands to focus on product excellence while we handle the complexity of scale.</p>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <h4>Multibrand</h4>
+                            <p>Managing diverse verticals from apparel to tech.</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>Centralized</h4>
+                            <p>Unified operations headquarted in Wyoming.</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>Data-Driven</h4>
+                            <p>Every decision is backed by proprietary analytics.</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>Institutional</h4>
+                            <p>Standardized reporting and governance.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a
-              href="mailto:contact@illyria.group"
-              className="inline-flex rounded-2xl bg-white px-6 py-3 text-sm font-medium text-neutral-950 transition hover:opacity-90"
-            >
-              contact@illyria.group
-            </a>
-          </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="contact-wrap">
+                    <div>
+                        <span class="section-label">General Inquiries</span>
+                        <h2>Get in touch.</h2>
+                        <p style="color: var(--grey-mid); margin-bottom: 50px;">We are always looking for potential acquisitions and strategic partnerships. Contact our main office for more information.</p>
+                        <div class="address-card">
+                            <span>HQ Address</span>
+                            Illyria LLC<br>
+                            30 N GOULD ST STE R<br>
+                            SHERIDAN, WY 82801<br>
+                            USA
+                        </div>
+                    </div>
+                    <div style="background: var(--grey-light); padding: 50px; display: flex; flex-direction: column; justify-content: center;">
+                        <p style="font-size: 0.8rem; color: var(--grey-mid); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 30px;">Digital Correspondence</p>
+                        <div style="height: 1px; background: var(--border); width: 100%; margin-bottom: 25px;"></div>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 5px;">inquiry@illyria.group</p>
+                        <p style="font-size: 0.85rem; color: var(--grey-mid);">Average response time: 24-48 hours</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-flex">
+                <div>
+                    <div class="logo" style="font-size: 1rem;">Illyria Group</div>
+                    <p class="legal-name">Registered as Illyria LLC in Wyoming.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="https://illyria.group">illyria.group</a>
+                </div>
+            </div>
+            <p style="font-size: 0.7rem; color: var(--grey-mid); margin-top: 40px; opacity: 0.5;">&copy; 2026 Illyria Group. All rights reserved.</p>
         </div>
-      </section>
-    </div>
-  );
-}
+    </footer>
+
+</body>
+</html>
