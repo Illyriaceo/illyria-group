@@ -3,240 +3,685 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Illyria Group | E-commerce Portfolio Holding</title>
+    <title>Illyria Group | Institutional Digital Commerce</title>
+
+    <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome CDN (Replacing local Zeyno files) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --black: #000000;
-            --white: #ffffff;
-            --grey-light: #f9f9f9;
-            --grey-mid: #666666;
-            --border: #dfdfdf;
-            --max-width: 1200px;
+            /* Modified PE Monochrome Palette */
+            --primary-color: #111111;
+            --secondary-color: #333333;
+            --text-dark: #111111;
+            --text-light: #777777;
+            --bg-light: #f8f9fa;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
-            background-color: var(--white); 
-            color: var(--black); 
-            line-height: 1.5; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Institutional Inter Font */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Layout & Scaffolding */
-        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
-        section { padding: 140px 0; border-top: 1px solid var(--border); }
-        .hero { border-top: none; padding: 200px 0 140px 0; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
         /* Navigation */
-        nav {
-            position: fixed; top: 0; width: 100%; height: 90px;
-            background: rgba(255,255,255,0.98);
-            display: flex; align-items: center; z-index: 1000;
-            border-bottom: 1px solid var(--border);
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
         }
-        nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { font-weight: 600; letter-spacing: -0.01em; font-size: 1.3rem; text-transform: uppercase; }
-        .nav-links a { text-decoration: none; color: var(--black); margin-left: 50px; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
 
-        /* Hero Section */
-        .hero h1 { font-size: 3.8rem; font-weight: 400; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 30px; max-width: 900px; }
-        .hero p { font-size: 1.3rem; color: var(--grey-mid); max-width: 650px; margin-bottom: 48px; font-weight: 300; }
-        .cta-button { 
-            display: inline-block; padding: 18px 40px; background: var(--black); color: var(--white); 
-            text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .cta-button:hover { background: var(--grey-mid); }
 
-        /* Services / Portfolio Section */
-        .section-label { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--grey-mid); display: block; margin-bottom: 12px; }
-        .section-header h2 { font-size: 2.2rem; font-weight: 400; margin-bottom: 80px; letter-spacing: -0.02em; }
-
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 1px; 
-            background: var(--border); 
-            border: 1px solid var(--border);
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
         }
-        .service-block { 
-            background: var(--white); 
-            padding: 70px 45px; 
-            height: 100%;
-        }
-        .service-block .num { font-size: 0.75rem; color: var(--grey-mid); margin-bottom: 50px; display: block; font-weight: 600; }
-        .service-block h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 20px; }
-        .service-block p { font-size: 0.95rem; color: var(--grey-mid); line-height: 1.7; }
 
-        /* About / Holding Structure */
-        .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
-        .about-text h3 { font-size: 1.7rem; font-weight: 400; margin-bottom: 30px; line-height: 1.4; }
-        .about-text p { margin-bottom: 20px; color: var(--grey-mid); }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-light);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 80px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 4px; /* Sharper edges */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        /* EXACT ZEYNO STYLES FROM SOURCE CODE */
+        main { padding-top: 0 !important; }
+        .navbar {
+            background: rgba(255,255,255,0.95) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.07) !important;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 55fr 45fr;
+            position: relative;
+            overflow: hidden;
+            background: #f4f4f0;
+        }
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 5% 8rem calc((100vw - 1200px) / 2 + 2rem);
+            position: relative;
+            z-index: 1;
+        }
+        .hero-right {
+            background: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+        }
+        .hero-right-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.08;
+            background-image: repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%);
+            background-size: 20px 20px;
+        }
+        .hero-right-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .hero-right-circle-1 { width: 500px; height: 500px; bottom: -150px; right: -100px; }
+        .hero-right-circle-2 { width: 280px; height: 280px; top: 10%; left: 5%; }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+        .hero-tag::before { content: ''; display: block; width: 28px; height: 2px; background: var(--primary-color); }
+        .hero h1 {
+            font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: #111;
+            margin-bottom: 1.75rem;
+        }
+        .hero h1 em { font-style: normal; color: var(--primary-color); position: relative; }
+        .hero h1 em::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 3px; background: var(--primary-color); opacity: 0.25; border-radius: 2px; }
+        .hero-subtitle { font-size: 1.05rem; color: #555; line-height: 1.8; max-width: 440px; margin-bottom: 3rem; }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem;
+            font-weight: 700; font-size: 0.9rem; letter-spacing: 0.02em; border-radius: 4px;
+            text-decoration: none; transition: all 0.25s ease; border: 2px solid transparent; cursor: pointer;
+        }
+        .btn-dark { background: #111; color: white; }
+        .btn-dark:hover { background: #333; transform: translateY(-2px); }
+        .btn-ghost { background: transparent; color: #111; border-color: #bbb; }
+        .btn-ghost:hover { border-color: #111; }
+
+        .section { padding: 7rem 0; }
+        .section-eyebrow {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--primary-color); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem;
+        }
+        .section-eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--primary-color); flex-shrink: 0; }
+        .section-heading { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 900; letter-spacing: -0.025em; color: #111; line-height: 1.12; margin-bottom: 1rem; }
+        .section-subtext { font-size: 1rem; color: #666; line-height: 1.8; }
+
+        .services-section { background: white; }
+        .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
+        .services-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #e8e8e8; }
+        .service-item { padding: 2.5rem 2rem; border-bottom: 1px solid #e8e8e8; position: relative; transition: background 0.25s ease; }
+        .service-item:nth-child(odd) { border-right: 1px solid #e8e8e8; }
+        .service-item:hover { background: #fafafa; }
+        .service-num { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #bbb; margin-bottom: 1.25rem; display: block; }
+        .service-icon-wrap {
+            width: 44px; height: 44px; background: #eeeeee; border-radius: 4px;
+            display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 1.1rem;
+            margin-bottom: 1.25rem; transition: all 0.25s ease;
+        }
+        .service-item:hover .service-icon-wrap { background: var(--primary-color); color: white; }
+        .service-title { font-size: 1.1rem; font-weight: 700; color: #111; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+        .service-text { font-size: 0.9rem; color: #666; line-height: 1.7; }
+
+        .about-section { background: #f4f4f0; }
+        .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+        .about-text-col h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.025em; color: #111; line-height: 1.15; margin-bottom: 1.5rem; }
+        .about-text-col p { font-size: 0.97rem; color: #555; line-height: 1.85; margin-bottom: 1.25rem; }
+        .about-btn-wrap { margin-top: 2.5rem; }
         
-        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .stat-item { border-left: 2px solid var(--black); padding-left: 20px; }
-        .stat-item h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; }
-        .stat-item p { font-size: 0.9rem; color: var(--grey-mid); }
+        .about-timeline { padding-top: 0.5rem; }
+        .timeline-item { display: flex; gap: 1.5rem; padding-bottom: 2rem; position: relative; }
+        .timeline-item:not(:last-child)::before { content: ''; position: absolute; left: 21px; top: 44px; bottom: 0; width: 1px; background: #ddd; }
+        .timeline-dot {
+            width: 44px; height: 44px; flex-shrink: 0; background: white; border: 2px solid #e0e0e0; border-radius: 4px;
+            display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 1rem;
+            position: relative; z-index: 1; transition: all 0.25s ease;
+        }
+        .timeline-item:hover .timeline-dot { background: var(--primary-color); border-color: var(--primary-color); color: white; }
+        .timeline-body h4 { font-size: 0.97rem; font-weight: 700; color: #111; margin-bottom: 0.35rem; padding-top: 0.6rem; }
+        .timeline-body p { font-size: 0.87rem; color: #777; line-height: 1.6; margin: 0; }
 
-        /* Contact & Address */
-        .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
-        .address-card { font-size: 1.1rem; border-top: 4px solid var(--black); padding-top: 30px; }
-        .address-card span { display: block; color: var(--grey-mid); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px; }
+        .stats-section { background: #111; padding: 2rem 0; }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); }
+        .stat-cell { text-align: center; padding: 1rem 1rem; position: relative; transition: background 0.25s ease; }
+        .stat-cell:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 25%; height: 50%; width: 1px; background: rgba(255,255,255,0.12); }
+        .stat-cell:hover { background: rgba(255,255,255,0.03); }
+        .stat-value { font-size: 3.2rem; font-weight: 900; letter-spacing: -0.04em; color: white; line-height: 1; margin-bottom: 0.6rem; }
+        .stat-desc { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+        .contact-section { background: white; }
+        .contact-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: start; }
+        .contact-form-box { background: #f4f4f0; padding: 3rem; border-radius: 8px; }
+        .contact-form-box h3 { font-size: 1.7rem; font-weight: 900; letter-spacing: -0.02em; color: #111; margin-bottom: 0.5rem; }
+        .contact-form-box > p { color: #777; margin-bottom: 2rem; font-size: 0.93rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #444; margin-bottom: 0.4rem; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 0.875rem 1rem; border: 1.5px solid #ddd; border-radius: 4px; font-size: 0.93rem; font-family: inherit; color: #111; background: white; box-sizing: border-box;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .form-submit { width: 100%; justify-content: center; padding: 1rem; margin-top: 0.5rem; }
+
+        .contact-sidebar { position: sticky; top: 6rem; }
+        .contact-sidebar h3 { font-size: 1.4rem; font-weight: 900; color: #111; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+        .contact-sidebar > p { font-size: 0.9rem; color: #777; margin-bottom: 2rem; line-height: 1.7; }
+        .info-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; border-radius: 4px; border: 1.5px solid #e8e8e8; margin-bottom: 0.75rem; }
+        .info-icon { width: 40px; height: 40px; background: #f4f4f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: var(--primary-color); flex-shrink: 0; }
+        .info-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; margin-bottom: 0.25rem; }
+        .info-value { font-size: 0.92rem; color: #222; font-weight: 500; line-height: 1.5; }
+        .info-value a { color: #222; text-decoration: none; }
+
+        .newsletter-section { background: var(--primary-color); padding: 5rem 0; position: relative; overflow: hidden; }
+        .newsletter-section::after { content: ''; position: absolute; right: -5%; top: -30%; width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+        .newsletter-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+        .newsletter-left h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 900; color: white; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 1rem; }
+        .newsletter-left p { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.75; margin: 0; }
+        .newsletter-input-row { display: flex; background: white; border-radius: 4px; overflow: hidden; }
+        .newsletter-input-row input { flex: 1; border: none; padding: 1rem 1.25rem; font-size: 0.93rem; color: #111; }
+        .newsletter-input-row input:focus { outline: none; }
+        .newsletter-input-row button { background: #111; color: white; border: none; padding: 1rem 1.5rem; font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: background 0.2s ease; }
+        .newsletter-perks { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1rem;}
+        .newsletter-perk { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: rgba(255,255,255,0.7); }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .services-list { grid-template-columns: 1fr; }
+            .service-item:nth-child(odd) { border-right: none; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-left { padding: 8rem 2rem 4rem; }
+            .hero-right { display: none; }
+            .services-header, .about-wrap, .contact-wrap, .newsletter-split { grid-template-columns: 1fr; gap: 2rem; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .section { padding: 5rem 0; }
+        }
+
+        /* Navbar specifics */
+        .nav-logo-row { display: flex; justify-content: center; align-items: center; position: relative; }
+        .nav-links-row { display: flex; justify-content: center; align-items: center; padding: 0.4rem 0 0.2rem; }
+        .nav-links .nav-link { padding: 0.5rem 1.1rem; border-radius: 4px; transition: background 0.2s ease; display: block; }
+        .nav-links .nav-link:hover { background: #f4f4f0; }
+        .nav-links .nav-cta { color: white; background: #111; padding: 0.6rem 1.4rem; border-radius: 4px; margin-left: 0.75rem; transition: background 0.2s ease; }
+        .nav-links .nav-cta:hover { background: var(--secondary-color); }
+        .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; position: absolute; right: 0; }
+        .nav-toggle span { display: block; width: 22px; height: 2px; background: #111; transition: all 0.3s ease; }
+        .nav-mobile { display: none; background: white; border-top: 1px solid #ebebeb; padding: 0.5rem 1.5rem 1.25rem; }
+        .nav-mobile ul { list-style: none; margin: 0; padding: 0; }
+        .nav-mobile ul li { border-bottom: 1px solid #f0f0f0; }
+        .nav-mobile ul li a { display: block; padding: 0.875rem 0; color: #333; text-decoration: none; font-weight: 500; font-size: 0.93rem; }
+        @media (max-width: 768px) { .nav-links-row { display: none; } .nav-toggle { display: flex; } .nav-mobile.open { display: block; } }
 
         /* Footer */
-        footer { padding: 80px 0; background: var(--white); border-top: 1px solid var(--border); }
-        .footer-flex { display: flex; justify-content: space-between; align-items: flex-end; }
-        .legal-name { font-size: 0.75rem; color: var(--grey-mid); margin-top: 10px; }
-        .footer-links a { font-size: 0.75rem; color: var(--black); text-decoration: none; margin-left: 30px; opacity: 0.6; }
-
-        @media (max-width: 960px) {
-            .services-grid { grid-template-columns: 1fr 1fr; }
-            .hero h1 { font-size: 2.8rem; }
-            .about-wrap, .contact-wrap { grid-template-columns: 1fr; gap: 60px; }
-        }
+        .footer { background: #f4f4f0; border-top: 1px solid #e5e5e0; }
+        .footer-top { padding: 4rem 0 3rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+        .footer-brand { font-size: 1.2rem; font-weight: 900; color: #111; letter-spacing: -0.02em; margin-bottom: 0.875rem; text-transform: uppercase; }
+        .footer-description { font-size: 0.88rem; line-height: 1.8; color: #777; margin: 0; }
+        .footer-title { font-size: 0.7rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1.1rem; }
+        .footer-links { list-style: none; margin: 0; padding: 0; }
+        .footer-links li { margin-bottom: 0.6rem; }
+        .footer-links a { color: #444; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s ease; display: inline-block; }
+        .footer-links a:hover { color: var(--primary-color); }
+        .footer-bottom { border-top: 1px solid #e0e0da; padding: 1.25rem 0; }
+        .footer-bottom-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .footer-copyright { font-size: 0.82rem; color: #aaa; margin: 0; }
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-col--brand { grid-column: 1 / -1; } }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom-inner { flex-direction: column; align-items: flex-start; } }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="container">
-            <div class="logo">Illyria Group</div>
-            <div class="nav-links">
-                <a href="#portfolio">Operations</a>
-                <a href="#about">The Group</a>
-                <a href="#contact">Contact</a>
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-logo-row">
+        <div class="logo">
+            <a href="/" style="text-decoration: none; color: inherit;">
+                Illyria Group
+            </a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="nav-links-row">
+        <ul class="nav-links">
+            <li><a href="#services" class="nav-link">Operations</a></li>
+            <li><a href="#about" class="nav-link">Holdings</a></li>
+            <li><a href="#contact" class="nav-cta">Investor Relations</a></li>
+        </ul>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+        <ul>
+            <li><a href="#services">Operations</a></li>
+            <li><a href="#about">Holdings</a></li>
+            <li><a href="#contact">Investor Relations</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    (function() {
+        var toggle = document.getElementById('nav-toggle');
+        var mobileNav = document.getElementById('nav-mobile');
+        toggle.addEventListener('click', function() {
+            mobileNav.classList.toggle('open');
+        });
+    })();
+</script>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-tag">
+                Corporate Entity
+            </div>
+            <h1>Institutional scale for <em>digital commerce</em>.</h1>
+            <p class="hero-subtitle">Illyria Group is a holding company dedicated to acquiring, operating, and scaling a diversified portfolio of high-performing digital properties.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-dark">Investor Relations</a>
+                <a href="#services" class="btn btn-ghost">Operational Focus</a>
             </div>
         </div>
-    </nav>
+        <div class="hero-right">
+            <div class="hero-right-pattern"></div>
+            <div class="hero-right-circle hero-right-circle-1"></div>
+            <div class="hero-right-circle hero-right-circle-2"></div>
+        </div>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <span class="section-label">Institutional Asset Management</span>
-                <h1>Building and operating a portfolio of e-commerce brands.</h1>
-                <p>Illyria Group scales digital-native entities through shared infrastructure, centralized capital allocation, and operational excellence.</p>
-                <a href="#contact" class="cta-button">Inquire</a>
-            </div>
-        </section>
-
-        <section id="portfolio">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Core Capabilities</span>
-                    <h2>The Portfolio Framework</h2>
-                </div>
-                <div class="services-grid">
-                    <div class="service-block">
-                        <span class="num">01</span>
-                        <h3>Asset Acquisition</h3>
-                        <p>Identifying high-yield e-commerce brands with strong fundamentals and untapped scaling potential.</p>
-                    </div>
-                    <div class="service-block">
-                        <span class="num">02</span>
-                        <h3>Shared Services</h3>
-                        <p>Centralizing logistics, customer success, and HR to drive down OpEx across the entire umbrella.</p>
-                    </div>
-                    <div class="service-block">
-                        <span class="num">03</span>
-                        <h3>Growth Equity</h3>
-                        <p>Strategic deployment of capital to accelerate inventory turnover and market penetration.</p>
-                    </div>
-                    <div class="service-block">
-                        <span class="num">04</span>
-                        <h3>Proprietary Tech</h3>
-                        <p>Developing unified data dashboards and automated supply chain tools for all Illyria brands.</p>
-                    </div>
-                    <div class="service-block">
-                        <span class="num">05</span>
-                        <h3>Omnichannel Strategy</h3>
-                        <p>Expanding digital-first brands into physical retail and global marketplaces with consistency.</p>
-                    </div>
-                    <div class="service-block">
-                        <span class="num">06</span>
-                        <h3>Exit Strategy</h3>
-                        <p>Nurturing brands toward institutional grade maturity for long-term value realization.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <div class="about-wrap">
-                    <div class="about-text">
-                        <span class="section-label">Organization</span>
-                        <h3>A specialized holding company for the digital economy.</h3>
-                        <p>Illyria Group operates at the intersection of private equity and operational management. We don't just invest in brands; we integrate them into a sophisticated ecosystem designed for efficiency.</p>
-                        <p>By owning the infrastructure—from warehousing to software stacks—we allow our brands to focus on product excellence while we handle the complexity of scale.</p>
-                    </div>
-                    <div class="stat-grid">
-                        <div class="stat-item">
-                            <h4>Multibrand</h4>
-                            <p>Managing diverse verticals from apparel to tech.</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>Centralized</h4>
-                            <p>Unified operations headquarted in Wyoming.</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>Data-Driven</h4>
-                            <p>Every decision is backed by proprietary analytics.</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>Institutional</h4>
-                            <p>Standardized reporting and governance.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <div class="contact-wrap">
-                    <div>
-                        <span class="section-label">General Inquiries</span>
-                        <h2>Get in touch.</h2>
-                        <p style="color: var(--grey-mid); margin-bottom: 50px;">We are always looking for potential acquisitions and strategic partnerships. Contact our main office for more information.</p>
-                        <div class="address-card">
-                            <span>HQ Address</span>
-                            Illyria LLC<br>
-                            30 N GOULD ST STE R<br>
-                            SHERIDAN, WY 82801<br>
-                            USA
-                        </div>
-                    </div>
-                    <div style="background: var(--grey-light); padding: 50px; display: flex; flex-direction: column; justify-content: center;">
-                        <p style="font-size: 0.8rem; color: var(--grey-mid); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 30px;">Digital Correspondence</p>
-                        <div style="height: 1px; background: var(--border); width: 100%; margin-bottom: 25px;"></div>
-                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 5px;">inquiry@illyria.group</p>
-                        <p style="font-size: 0.85rem; color: var(--grey-mid);">Average response time: 24-48 hours</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <!-- Services Section (Operations) -->
+    <section class="section services-section" id="services">
         <div class="container">
-            <div class="footer-flex">
+            <div class="services-header">
                 <div>
-                    <div class="logo" style="font-size: 1rem;">Illyria Group</div>
-                    <p class="legal-name">Registered as Illyria LLC in Wyoming.</p>
+                    <div class="section-eyebrow">Operational Framework</div>
+                    <h2 class="section-heading">Value creation engine.</h2>
                 </div>
-                <div class="footer-links">
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
-                    <a href="https://illyria.group">illyria.group</a>
+                <p class="section-subtext">From strategic asset acquisition to operational restructuring, our methodology ensures sustained aggregate yield across the portfolio.</p>
+            </div>
+
+            <div class="services-list">
+                <div class="service-item">
+                    <span class="service-num">01</span>
+                    <div class="service-icon-wrap"><i class="fas fa-chart-pie"></i></div>
+                    <div class="service-title">Asset Acquisition</div>
+                    <p class="service-text">Strategic identification and procurement of high-potential digital commerce assets with established market fit.</p>
+                </div>
+
+                <div class="service-item">
+                    <span class="service-num">02</span>
+                    <div class="service-icon-wrap"><i class="fas fa-project-diagram"></i></div>
+                    <div class="service-title">Supply Chain Optimization</div>
+                    <p class="service-text">Restructuring vendor relationships and logistics to maximize margin efficiency and inventory turnover.</p>
+                </div>
+
+                <div class="service-item">
+                    <span class="service-num">03</span>
+                    <div class="service-icon-wrap"><i class="fas fa-coins"></i></div>
+                    <div class="service-title">Growth Capital</div>
+                    <p class="service-text">Deploying structured capital to scale operations, fund inventory, and accelerate market penetration.</p>
+                </div>
+
+                <div class="service-item">
+                    <span class="service-num">04</span>
+                    <div class="service-icon-wrap"><i class="fas fa-server"></i></div>
+                    <div class="service-title">Digital Infrastructure</div>
+                    <p class="service-text">Implementing robust, scalable technology stacks and data architecture across portfolio brands.</p>
+                </div>
+
+                <div class="service-item">
+                    <span class="service-num">05</span>
+                    <div class="service-icon-wrap"><i class="fas fa-globe"></i></div>
+                    <div class="service-title">Omnichannel Expansion</div>
+                    <p class="service-text">Driving revenue diversification through strategic retail partnerships and international market entry.</p>
+                </div>
+
+                <div class="service-item">
+                    <span class="service-num">06</span>
+                    <div class="service-icon-wrap"><i class="fas fa-chart-line"></i></div>
+                    <div class="service-title">Value Realization</div>
+                    <p class="service-text">Optimizing aggregate portfolio valuation through sustained EBITDA growth and operational excellence.</p>
                 </div>
             </div>
-            <p style="font-size: 0.7rem; color: var(--grey-mid); margin-top: 40px; opacity: 0.5;">&copy; 2026 Illyria Group. All rights reserved.</p>
         </div>
-    </footer>
+    </section>
+
+    <!-- About Section (Holdings/Overview) -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-wrap">
+                <div class="about-text-col">
+                    <div class="section-eyebrow" style="margin-bottom: 1rem;">Corporate Overview</div>
+                    <h2>Operational excellence at scale.</h2>
+                    <p>Illyria Group operates as a specialized holding entity, systematically scaling a diversified portfolio of e-commerce properties to maximize market share.</p>
+                    <p>We deploy rigorous capital structures and unified data pipelines, bypassing traditional agency inefficiencies to focus purely on balance sheet management and brand equity.</p>
+                    <div class="about-btn-wrap">
+                        <a href="#contact" class="btn btn-dark">Partnership Inquiries</a>
+                    </div>
+                </div>
+
+                <div class="about-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><i class="fas fa-crosshairs"></i></div>
+                        <div class="timeline-body">
+                            <h4>Target Identification</h4>
+                            <p>Sourcing properties with resilient fundamentals.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><i class="fas fa-file-signature"></i></div>
+                        <div class="timeline-body">
+                            <h4>Rigorous Due Diligence</h4>
+                            <p>Comprehensive operational and financial auditing.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><i class="fas fa-building"></i></div>
+                        <div class="timeline-body">
+                            <h4>Capital Deployment</h4>
+                            <p>Strategic funding for immediate structural leverage.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><i class="fas fa-cogs"></i></div>
+                        <div class="timeline-body">
+                            <h4>Operational Integration</h4>
+                            <p>Migration into Illyria's proprietary scaling ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-cell">
+                    <div class="stat-value">12<span>+</span></div>
+                    <div class="stat-desc">Portfolio Brands</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-value">85<span>%</span></div>
+                    <div class="stat-desc">Target YoY Growth</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-value">5<span>+</span></div>
+                    <div class="stat-desc">Global Markets</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-value">100<span>%</span></div>
+                    <div class="stat-desc">Owned & Operated</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div style="margin-bottom: 4rem;">
+                <div class="section-eyebrow">Relations</div>
+                <h2 class="section-heading">Direct institutional inquiries.</h2>
+                <p class="section-subtext" style="max-width: 560px;">For investment opportunities, portfolio acquisitions, or press inquiries, please submit a formal request to our executive team.</p>
+            </div>
+
+            <div class="contact-wrap">
+                <!-- Formulaire -->
+                <div class="contact-form-box">
+                    <h3>Submit Inquiry</h3>
+                    <p>Our relations desk will respond within one business cycle.</p>
+                    
+                    <form name="contact" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact_name">Corporate Entity / Name</label>
+                                <input type="text" id="contact_name" name="contact[name]" required="required" placeholder="Entity name" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact_email">Corporate E-mail</label>
+                                <input type="email" id="contact_email" name="contact[email]" required="required" placeholder="contact@domain.com" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact_subject">Subject Matter</label>
+                            <input type="text" id="contact_subject" name="contact[subject]" placeholder="Acquisition, Investment, Press..." />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact_message">Inquiry Details</label>
+                            <textarea id="contact_message" name="contact[message]" required="required" placeholder="Please provide specific context..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark form-submit" id="contact-submit-btn">Transmit Communication</button>
+                    </form>
+                </div>
+
+                <!-- Sidebar informations -->
+                <div class="contact-sidebar">
+                    <h3>Corporate Desks</h3>
+                    <p>All structured queries are routed directly to the appropriate operational unit.</p>
+
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div class="info-label">Corporate Email</div>
+                            <div class="info-value"><a href="mailto:contact@illyria.group">contact@illyria.group</a></div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-globe"></i></div>
+                        <div>
+                            <div class="info-label">Domain Property</div>
+                            <div class="info-value">Illyria.group</div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-building"></i></div>
+                        <div>
+                            <div class="info-label">Holding Company</div>
+                            <div class="info-value">Illyria LLC</div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon"><i class="far fa-clock"></i></div>
+                        <div>
+                            <div class="info-label">Trading & Operations</div>
+                            <div class="info-value">Mon-Fri: Standard Market Hours<br>Digital Infrastructure: 24/7</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-split">
+                <div class="newsletter-left">
+                    <h2>Investor Briefing</h2>
+                    <p>Receive quarterly performance metrics, operational milestones, and new asset acquisition announcements.</p>
+                </div>
+                <div class="newsletter-right">
+                    <form action="#" method="post">
+                        <div class="newsletter-input-row">
+                            <input type="email" name="newsletter_email" placeholder="Corporate email address" required>
+                            <button type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="newsletter-perks">
+                        <div class="newsletter-perk"><i class="fas fa-check"></i>Quarterly Reports</div>
+                        <div class="newsletter-perk"><i class="fas fa-check"></i>Acquisition News</div>
+                        <div class="newsletter-perk"><i class="fas fa-check"></i>Market Insights</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col--brand">
+                    <div class="footer-brand">Illyria Group</div>
+                    <p class="footer-description">An institutional holding company managing a diverse, high-yielding portfolio of digital commerce properties.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Operations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Asset Acquisition</a></li>
+                        <li><a href="#services">Growth Capital</a></li>
+                        <li><a href="#services">Digital Infrastructure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Corporate</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">Holdings</a></li>
+                        <li><a href="#services">Strategy</a></li>
+                        <li><a href="#contact">Investor Relations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal Entity</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Illyria LLC</a></li>
+                        <li><a href="#">Illyria.group</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <p class="footer-copyright">&copy; 2024 Illyria LLC. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Legal notice</a>
+                <a href="#">Terms and Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
