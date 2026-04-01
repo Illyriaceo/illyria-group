@@ -1,668 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Illyria Group</title>
-  <meta
-    name="description"
-    content="Illyria Group builds and operates a portfolio of e-commerce brands."
-  />
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --panel: rgba(255,255,255,0.04);
-      --panel-strong: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.1);
-      --text: #f4f4f2;
-      --muted: #b4b4ae;
-      --soft: #8c8c86;
-      --accent: #d7d2c4;
-      --max: 1180px;
-      --radius: 28px;
-      --shadow: 0 20px 60px rgba(0,0,0,0.35);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 30%),
-        radial-gradient(circle at top right, rgba(255,255,255,0.04), transparent 22%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(10,10,10,0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 78px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.96rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .brand-mark {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #f5f2e8, #8e8a7d);
-      box-shadow: 0 0 22px rgba(255,255,255,0.16);
-    }
-
-    .nav {
-      display: flex;
-      gap: 28px;
-    }
-
-    .nav a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-    }
-
-    .nav a:hover {
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 84px 0 52px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-main,
-    .hero-side,
-    .section-panel,
-    .card,
-    .contact-panel,
-    .metric {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-main {
-      padding: 56px;
-      min-height: 560px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: fit-content;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 24px 0 20px;
-      font-size: clamp(3rem, 6vw, 5.8rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      max-width: 900px;
-    }
-
-    .lead {
-      max-width: 760px;
-      font-size: 1.18rem;
-      line-height: 1.8;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 34px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: #0a0a0a;
-      font-weight: 600;
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.14);
-      color: var(--text);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .hero-footer {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 40px;
-    }
-
-    .metric {
-      padding: 22px;
-      min-height: 120px;
-    }
-
-    .metric-label {
-      color: var(--soft);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .metric-value {
-      font-size: 1.12rem;
-      line-height: 1.4;
-      color: var(--text);
-    }
-
-    .hero-side {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .side-block {
-      padding: 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .side-label,
-    .section-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--soft);
-      margin-bottom: 12px;
-    }
-
-    .side-title {
-      font-size: 1.5rem;
-      margin: 0 0 10px;
-      letter-spacing: -0.03em;
-    }
-
-    .side-text {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 1rem;
-    }
-
-    section {
-      padding: 24px 0;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 26px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(2rem, 3.2vw, 3.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      font-size: 1.04rem;
-      line-height: 1.85;
-      max-width: 700px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      padding: 30px;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card-number {
-      color: var(--soft);
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      margin: 0 0 14px;
-      font-size: 1.45rem;
-      letter-spacing: -0.03em;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .section-panel {
-      padding: 34px;
-    }
-
-    .section-panel h3 {
-      margin: 0 0 16px;
-      font-size: 1.6rem;
-      letter-spacing: -0.03em;
-    }
-
-    .section-panel p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 1rem;
-    }
-
-    .list {
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 14px;
-    }
-
-    .list li {
-      color: var(--text);
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact {
-      padding: 48px 0 90px;
-    }
-
-    .contact-panel {
-      padding: 40px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 26px;
-      align-items: end;
-    }
-
-    .contact-panel h2 {
-      margin: 0 0 18px;
-      font-size: clamp(2rem, 3vw, 3.4rem);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-    }
-
-    .contact-panel p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 720px;
-      line-height: 1.85;
-      font-size: 1.02rem;
-    }
-
-    .contact-box {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: flex-start;
-      justify-self: end;
-    }
-
-    .contact-label {
-      color: var(--soft);
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .contact-email {
-      font-size: 1.35rem;
-      letter-spacing: -0.02em;
-    }
-
-    .footer {
-      padding: 0 0 32px;
-      color: var(--soft);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .section-head,
-      .cards,
-      .two-col,
-      .contact-panel,
-      .hero-footer {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-main {
-        min-height: auto;
-      }
-
-      .contact-box {
-        justify-self: start;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .container {
-        width: min(var(--max), calc(100% - 28px));
-      }
-
-      .topbar-inner {
-        min-height: 70px;
-      }
-
-      .nav {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 42px;
-      }
-
-      .hero-main,
-      .hero-side,
-      .section-panel,
-      .card,
-      .contact-panel {
-        padding: 24px;
-        border-radius: 22px;
-      }
-
-      h1 {
-        font-size: 2.7rem;
-      }
-
-      .lead {
-        font-size: 1rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Illyria LLC</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Inter, sans-serif;
+  background:#0a0a0a;
+  color:#fff;
+}
+
+.container {
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+h1 {
+  font-size:64px;
+  line-height:1.05;
+  margin-bottom:20px;
+}
+
+h2 {
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+p {
+  color:#aaa;
+  font-size:18px;
+  line-height:1.7;
+}
+
+.section {
+  margin-top:120px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.card {
+  background:#111;
+  padding:30px;
+  border-radius:20px;
+  border:1px solid #222;
+}
+
+.number {
+  color:#555;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.hero {
+  padding-top:120px;
+}
+
+.subtitle {
+  color:#777;
+  margin-bottom:20px;
+}
+
+.stats {
+  display:flex;
+  gap:40px;
+  margin-top:60px;
+}
+
+.stat {
+  font-size:14px;
+  color:#888;
+}
+
+.footer {
+  margin-top:120px;
+  border-top:1px solid #222;
+  padding-top:40px;
+  color:#777;
+  font-size:14px;
+}
+</style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a href="#" class="brand">
-        <span class="brand-mark"></span>
-        <span>Illyria Group</span>
-      </a>
 
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#activities">Activities</a>
-        <a href="#model">Operating Model</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<div class="container hero">
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-main">
-          <div>
-            <div class="eyebrow">Independent E-commerce Operator</div>
-            <h1>Building and operating a portfolio of e-commerce brands.</h1>
-            <p class="lead">
-              Illyria Group is an independent operator focused on the development,
-              scaling, and long-term management of direct-to-consumer e-commerce brands.
-            </p>
+<p class="subtitle">E-commerce Holding Company</p>
 
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#about">Discover More</a>
-              <a class="btn btn-secondary" href="#contact">Contact</a>
-            </div>
-          </div>
+<h1>
+Building and operating a portfolio of e-commerce brands.
+</h1>
 
-          <div class="hero-footer">
-            <div class="metric">
-              <div class="metric-label">Structure</div>
-              <div class="metric-value">Portfolio-based operating model</div>
-            </div>
-            <div class="metric">
-              <div class="metric-label">Focus</div>
-              <div class="metric-value">Direct-to-consumer e-commerce brands</div>
-            </div>
-            <div class="metric">
-              <div class="metric-label">Approach</div>
-              <div class="metric-value">Long-term value creation through disciplined execution</div>
-            </div>
-          </div>
-        </div>
+<p>
+Illyria LLC is an independent operator focused on the development, scaling,
+and long-term management of direct-to-consumer e-commerce brands.
+</p>
 
-        <aside class="hero-side">
-          <div class="side-block">
-            <div class="side-label">Positioning</div>
-            <h3 class="side-title">A structured operator, not a service agency.</h3>
-            <p class="side-text">
-              Illyria Group develops and operates its own ventures, with a focus on
-              ownership, operational discipline, and scalable digital assets.
-            </p>
-          </div>
+<div class="stats">
+  <div class="stat">Portfolio-based structure</div>
+  <div class="stat">Direct-to-consumer brands</div>
+  <div class="stat">Long-term value creation</div>
+</div>
 
-          <div class="side-block">
-            <div class="side-label">Why it matters</div>
-            <p class="side-text">
-              Our model is built around brand development, operational control,
-              acquisition systems, and long-term profitability.
-            </p>
-          </div>
+</div>
 
-          <div class="side-block">
-            <div class="side-label">Core Principle</div>
-            <p class="side-text">
-              Simple structures. Clear positioning. Strong execution.
-            </p>
-          </div>
-        </aside>
-      </div>
-    </section>
+<div class="container section">
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="section-label">About</div>
-            <h2>An independent group focused on digital consumer brands.</h2>
-          </div>
-          <div class="section-copy">
-            Illyria Group is dedicated to building and managing e-commerce businesses
-            through a model centered on ownership, execution, and long-term development.
-            Rather than operating as a traditional agency or service provider, the group
-            focuses on creating, structuring, and scaling its own digital assets.
-          </div>
-        </div>
-      </div>
-    </section>
+<h2>What we do</h2>
 
-    <section id="activities">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="section-label">Core Activities</div>
-            <h2>What we build and operate.</h2>
-          </div>
-          <div class="section-copy">
-            Our activities are designed around the full lifecycle of a modern e-commerce
-            brand, from initial positioning to operational scale.
-          </div>
-        </div>
+<p>
+We operate across the full lifecycle of e-commerce brands, from creation to scale.
+</p>
 
-        <div class="cards">
-          <article class="card">
-            <div>
-              <div class="card-number">01</div>
-              <h3>Brand Development</h3>
-              <p>
-                We design and launch e-commerce brands with clear positioning,
-                coherent customer experience, and durable commercial foundations.
-              </p>
-            </div>
-          </article>
+<div class="grid">
 
-          <article class="card">
-            <div>
-              <div class="card-number">02</div>
-              <h3>Growth & Acquisition</h3>
-              <p>
-                We scale brands through acquisition systems, performance marketing,
-                creative iteration, and continuous funnel optimization.
-              </p>
-            </div>
-          </article>
+<div class="card">
+<div class="number">01</div>
+<h3>Brand Development</h3>
+<p>Creation of new digital brands with strong positioning and product-market fit.</p>
+</div>
 
-          <article class="card">
-            <div>
-              <div class="card-number">03</div>
-              <h3>Operations & Scaling</h3>
-              <p>
-                We structure operations to support efficiency, scalability,
-                consistency, and long-term profitability across the portfolio.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<div class="number">02</div>
+<h3>Growth & Acquisition</h3>
+<p>Scaling through paid acquisition, creative testing and performance systems.</p>
+</div>
 
-    <section id="model">
-      <div class="container two-col">
-        <div class="section-panel">
-          <div class="section-label">Operating Model</div>
-          <h3>Portfolio-based by design.</h3>
-          <p>
-            Illyria Group operates as a portfolio structure in which each brand is
-            developed as an independent business asset. The group provides centralized
-            expertise in positioning, acquisition, and operational execution while
-            maintaining a long-term approach to value creation.
-          </p>
-        </div>
+<div class="card">
+<div class="number">03</div>
+<h3>Operations & Scaling</h3>
+<p>Optimizing logistics, margins and processes to ensure long-term profitability.</p>
+</div>
 
-        <div class="section-panel">
-          <div class="section-label">Approach</div>
-          <h3>Built for clarity and discipline.</h3>
-          <ul class="list">
-            <li>Long-term value creation over short-term gains</li>
-            <li>Structured and disciplined execution</li>
-            <li>Focus on scalability, profitability, and sustainability</li>
-            <li>Clear positioning and operational simplicity</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="contact-panel">
-          <div>
-            <div class="section-label">Contact</div>
-            <h2>For business and institutional inquiries.</h2>
-            <p>
-              Illyria Group may be contacted regarding business, banking,
-              administrative, or partnership matters through the address below.
-            </p>
-          </div>
+</div>
 
-          <div class="contact-box">
-            <div class="contact-label">Email</div>
-            <a class="contact-email" href="mailto:contact@illyria.group">contact@illyria.group</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<div class="container section">
 
-  <div class="container footer">
-    Illyria Group — Independent e-commerce operator
-  </div>
+<h2>Operating Model</h2>
+
+<p>
+Illyria LLC operates as a portfolio-based structure.
+Each brand is built as an independent asset, supported by centralized expertise
+across acquisition, operations and brand development.
+</p>
+
+</div>
+
+<div class="container section">
+
+<h2>About</h2>
+
+<p>
+Illyria LLC is a privately held company focused on building scalable,
+profitable and sustainable e-commerce businesses.
+The company operates its own ventures and follows a long-term approach
+to value creation.
+</p>
+
+</div>
+
+<div class="container section">
+
+<h2>Contact</h2>
+
+<p>contact@illyria.group</p>
+
+<p style="margin-top:20px;">
+Illyria LLC<br>
+30 N GOULD ST STE R<br>
+SHERIDAN, WY 82801<br>
+USA
+</p>
+
+</div>
+
+<div class="container footer">
+
+Illyria LLC — All rights reserved
+
+</div>
+
 </body>
 </html>
