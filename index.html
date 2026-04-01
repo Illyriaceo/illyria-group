@@ -1,194 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Illyria LLC</title>
+export default function IllyriaGroupShowcase() {
+  const activities = [
+    {
+      title: "Lancement de marques e-commerce",
+      description:
+        "Nous concevons, lançons et opérons des boutiques e-commerce pensées pour durer, avec une approche orientée positionnement, offre et exécution.",
+    },
+    {
+      title: "Acquisition & croissance",
+      description:
+        "Nous pilotons la croissance via des systèmes d'acquisition, des créatifs performants et une optimisation continue du funnel.",
+    },
+    {
+      title: "Infrastructure de marque",
+      description:
+        "Nous construisons des actifs solides : identité, site, contenu, opérations et structure pour faire émerger des marques premium.",
+    },
+  ];
 
-<style>
-body {
-  margin:0;
-  font-family: Inter, sans-serif;
-  background:#0a0a0a;
-  color:#fff;
+  const principles = [
+    "Ownership plutôt que prestation",
+    "Vitesse d'exécution",
+    "Simplicité premium",
+    "Vision long terme",
+  ];
+
+  return (
+    <div className="min-h-screen bg-neutral-950 text-neutral-100">
+      <section className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div>
+            <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm tracking-wide text-neutral-300">
+              Illyria.group
+            </div>
+            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight md:text-7xl">
+              Nous lançons et développons des marques e-commerce ambitieuses.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300 md:text-xl">
+              Illyria Group est une structure d'opération et de croissance dédiée à la création,
+              l'accélération et l'optimisation de marques e-commerce à fort potentiel.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#activites"
+                className="rounded-2xl bg-white px-6 py-3 text-sm font-medium text-neutral-950 transition hover:opacity-90"
+              >
+                Découvrir nos activités
+              </a>
+              <a
+                href="#contact"
+                className="rounded-2xl border border-white/15 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/5"
+              >
+                Nous contacter
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30 backdrop-blur">
+            <div className="text-sm uppercase tracking-[0.2em] text-neutral-400">Positionnement</div>
+            <div className="mt-4 space-y-4">
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
+                <div className="text-sm text-neutral-400">Modèle</div>
+                <div className="mt-1 text-xl font-medium">Maison de marques e-commerce</div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
+                <div className="text-sm text-neutral-400">Approche</div>
+                <div className="mt-1 text-xl font-medium">Operator-led, design-driven, growth-focused</div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
+                <div className="text-sm text-neutral-400">Ambition</div>
+                <div className="mt-1 text-xl font-medium">Construire un portefeuille de marques premium</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="activites" className="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-16">
+        <div className="mb-10 flex items-end justify-between gap-6">
+          <div>
+            <div className="text-sm uppercase tracking-[0.2em] text-neutral-500">Activités</div>
+            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Ce que nous construisons</h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-neutral-400 md:text-base">
+            Une structure pensée pour identifier des opportunités, lancer rapidement et transformer des idées en actifs e-commerce durables.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {activities.map((item) => (
+            <div key={item.title} className="rounded-[2rem] border border-white/10 bg-white/5 p-7">
+              <h3 className="text-xl font-medium">{item.title}</h3>
+              <p className="mt-4 leading-7 text-neutral-300">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-16">
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+            <div className="text-sm uppercase tracking-[0.2em] text-neutral-500">Principes</div>
+            <h2 className="mt-3 text-3xl font-semibold">Notre façon d'opérer</h2>
+            <div className="mt-8 space-y-3">
+              {principles.map((principle) => (
+                <div key={principle} className="rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-neutral-200">
+                  {principle}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8">
+            <div className="text-sm uppercase tracking-[0.2em] text-neutral-500">À propos</div>
+            <h2 className="mt-3 text-3xl font-semibold">Un groupe orienté exécution</h2>
+            <p className="mt-6 max-w-2xl leading-8 text-neutral-300">
+              Illyria Group n'est pas une agence classique. Nous développons nos propres initiatives e-commerce,
+              avec une attention particulière portée à l'offre, au branding, à la performance créative et à la croissance.
+            </p>
+            <p className="mt-4 max-w-2xl leading-8 text-neutral-300">
+              Notre objectif est simple : construire des marques fortes, rentables et élégantes, capables de s'imposer sur leur marché.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
+        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-12">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <div className="text-sm uppercase tracking-[0.2em] text-neutral-500">Contact</div>
+              <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Présenter Illyria avec clarté, autorité et élégance.</h2>
+              <p className="mt-5 max-w-2xl leading-8 text-neutral-300">
+                Ce site peut évoluer en vraie vitrine corporate avec pages dédiées, étude du groupe, portefeuille de marques, manifeste et formulaire de contact.
+              </p>
+            </div>
+            <a
+              href="mailto:contact@illyria.group"
+              className="inline-flex rounded-2xl bg-white px-6 py-3 text-sm font-medium text-neutral-950 transition hover:opacity-90"
+            >
+              contact@illyria.group
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
-
-.container {
-  max-width:1100px;
-  margin:auto;
-  padding:80px 20px;
-}
-
-h1 {
-  font-size:64px;
-  line-height:1.05;
-  margin-bottom:20px;
-}
-
-h2 {
-  font-size:32px;
-  margin-bottom:20px;
-}
-
-p {
-  color:#aaa;
-  font-size:18px;
-  line-height:1.7;
-}
-
-.section {
-  margin-top:120px;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-}
-
-.card {
-  background:#111;
-  padding:30px;
-  border-radius:20px;
-  border:1px solid #222;
-}
-
-.number {
-  color:#555;
-  font-size:14px;
-  margin-bottom:15px;
-}
-
-.hero {
-  padding-top:120px;
-}
-
-.subtitle {
-  color:#777;
-  margin-bottom:20px;
-}
-
-.stats {
-  display:flex;
-  gap:40px;
-  margin-top:60px;
-}
-
-.stat {
-  font-size:14px;
-  color:#888;
-}
-
-.footer {
-  margin-top:120px;
-  border-top:1px solid #222;
-  padding-top:40px;
-  color:#777;
-  font-size:14px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container hero">
-
-<p class="subtitle">E-commerce Holding Company</p>
-
-<h1>
-Building and operating a portfolio of e-commerce brands.
-</h1>
-
-<p>
-Illyria LLC is an independent operator focused on the development, scaling,
-and long-term management of direct-to-consumer e-commerce brands.
-</p>
-
-<div class="stats">
-  <div class="stat">Portfolio-based structure</div>
-  <div class="stat">Direct-to-consumer brands</div>
-  <div class="stat">Long-term value creation</div>
-</div>
-
-</div>
-
-<div class="container section">
-
-<h2>What we do</h2>
-
-<p>
-We operate across the full lifecycle of e-commerce brands, from creation to scale.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<div class="number">01</div>
-<h3>Brand Development</h3>
-<p>Creation of new digital brands with strong positioning and product-market fit.</p>
-</div>
-
-<div class="card">
-<div class="number">02</div>
-<h3>Growth & Acquisition</h3>
-<p>Scaling through paid acquisition, creative testing and performance systems.</p>
-</div>
-
-<div class="card">
-<div class="number">03</div>
-<h3>Operations & Scaling</h3>
-<p>Optimizing logistics, margins and processes to ensure long-term profitability.</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="container section">
-
-<h2>Operating Model</h2>
-
-<p>
-Illyria LLC operates as a portfolio-based structure.
-Each brand is built as an independent asset, supported by centralized expertise
-across acquisition, operations and brand development.
-</p>
-
-</div>
-
-<div class="container section">
-
-<h2>About</h2>
-
-<p>
-Illyria LLC is a privately held company focused on building scalable,
-profitable and sustainable e-commerce businesses.
-The company operates its own ventures and follows a long-term approach
-to value creation.
-</p>
-
-</div>
-
-<div class="container section">
-
-<h2>Contact</h2>
-
-<p>contact@illyria.group</p>
-
-<p style="margin-top:20px;">
-Illyria LLC<br>
-30 N GOULD ST STE R<br>
-SHERIDAN, WY 82801<br>
-USA
-</p>
-
-</div>
-
-<div class="container footer">
-
-Illyria LLC — All rights reserved
-
-</div>
-
-</body>
-</html>
